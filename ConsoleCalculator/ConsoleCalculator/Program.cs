@@ -5,110 +5,84 @@ namespace ConsoleCalculator
 {
     class Program
     {
+        private const string WELCOME_TEXT = "Console Calculator 1.00\nAvailable operations: sum(+), sub(-), mult(*), div(/)\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
+        private const string ERROR_OPERATION = "Wrong operation. Available operations: sum, sub, mult, div\n";
+        private const string ERROR_DATA = "Invalid data. Available variables: int, double";
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Console Calculator 1.00\nAvailable operations: sum(+), sub(-), mult(*), div(/)\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n");
+            Console.WriteLine(WELCOME_TEXT);
             Calculator();
         }
 
         static void Calculator()
         {
-            Console.WriteLine("Enter the command:");
-            string input = Console.ReadLine();
-            string errorMessage = "Wrong input operation. Available operations: sum, sub, mult, div\n";
-            string invalidDataMessage = "Invalid input data. Available variables: int, double";
-            if (input == "") Console.WriteLine(errorMessage);
-            else
+            while (true)
             {
+                Console.WriteLine("Enter the command:");
+                string input = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine(ERROR_OPERATION);
+                    continue;
+                }
+                
                 string[] splited = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 string operation = splited[0];
-                double value = 0.0;
+                    switch (operation)
+                    {
+                        case "sum":
+                            Calculations(splited, "sum");
+                            break;
+                        case "sub":
+                            Calculations(splited, "sub");
+                            break;
+                        case "mult":
+                            Calculations(splited, "mult");
+                            break;
+                        case "div":
+                            Calculations(splited, "div");
+                            break;
+                        default:
+                        Console.WriteLine(ERROR_OPERATION);
+                        break;
+                    }
+            } 
+        }
 
-                if (operation == "sum")
-                {
-                    for (int i = 1; i < splited.Length; i++)
-                        try
-                        {
-                            value = value + double.Parse(splited[i], CultureInfo.InvariantCulture);
-                        }
-                        catch
-                        {
-                            Console.WriteLine(invalidDataMessage);
-                            value = 0;
-                            break;
-                        }
-                }
-                if (operation == "sub")
-                {
-                    try
+        static void Calculations(string[] splitedString, string choosenOperation)
+        {
+            double value = double.Parse(splitedString[1], CultureInfo.InvariantCulture);
+
+            switch (choosenOperation)
+            {
+                case "sum":
+                    for (int i = 1; i < splitedString.Length - 1; i++)
                     {
-                        value = double.Parse(splited[1], CultureInfo.InvariantCulture);
+                        value = value + double.Parse(splitedString[i + 1], CultureInfo.InvariantCulture);
                     }
-                    catch
+                    break;
+                case "sub":
+                    for (int i = 1; i < splitedString.Length - 1; i++)
                     {
-                        Console.WriteLine(invalidDataMessage);
+                        value = value - double.Parse(splitedString[i + 1], CultureInfo.InvariantCulture);
                     }
-                    for (int i = 1; i < splited.Length - 1; i++)
-                        try
-                        {
-                            value = value - double.Parse(splited[i + 1], CultureInfo.InvariantCulture);
-                        }
-                        catch
-                        {
-                            Console.WriteLine(invalidDataMessage);
-                            value = 0;
-                            break;
-                        }
-                }
-                if (operation == "mult")
-                {
-                    try
+                    break;
+                case "mult":
+                    for (int i = 1; i < splitedString.Length - 1; i++)
                     {
-                        value = double.Parse(splited[1], CultureInfo.InvariantCulture);
+                        value = value * double.Parse(splitedString[i + 1], CultureInfo.InvariantCulture);
                     }
-                    catch
+                    break;
+                case "div":
+                    for (int i = 1; i < splitedString.Length - 1; i++)
                     {
-                        Console.WriteLine(invalidDataMessage);
+                        value = value / double.Parse(splitedString[i + 1], CultureInfo.InvariantCulture);
                     }
-                    for (int i = 1; i < splited.Length - 1; i++)
-                        try
-                        {
-                            value = value * double.Parse(splited[i + 1], CultureInfo.InvariantCulture);
-                        }
-                        catch
-                        {
-                            Console.WriteLine(invalidDataMessage);
-                            value = 0;
-                            break;
-                        }
-                }
-                if (operation == "div")
-                {
-                    try
-                    {
-                        value = double.Parse(splited[1], CultureInfo.InvariantCulture);
-                    }
-                    catch
-                    {
-                        Console.WriteLine(invalidDataMessage);
-                    }
-                    for (int i = 1; i < splited.Length - 1; i++)
-                        try
-                        {
-                            value = value / double.Parse(splited[i + 1], CultureInfo.InvariantCulture);
-                        }
-                        catch
-                        {
-                            Console.WriteLine(invalidDataMessage);
-                            value = 0;
-                            break;
-                        }
-                }
-                if (operation != "sum" && operation != "sub" && operation != "mult" && operation != "div")
-                    Console.WriteLine(errorMessage);
-                else Console.WriteLine("Result: " + value + "\n");
+                    break;
             }
-            Calculator();
+            Console.WriteLine("Result: " + value + "\n");
         }
     }
 }
