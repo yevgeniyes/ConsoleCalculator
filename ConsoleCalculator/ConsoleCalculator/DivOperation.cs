@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
-    class CalculateSum : BaseClass
+    class DivOperation : OperationBase
     {
         public override double GetResult(string[] splitedString)
         {
@@ -11,7 +11,7 @@ namespace ConsoleCalculator
 
             for (int i = 1; i < splitedString.Length - 1; i++)
             {
-                value = value + double.Parse(splitedString[i + 1], CultureInfo.InvariantCulture);
+                value = value / double.Parse(splitedString[i + 1], CultureInfo.InvariantCulture);
             }
             return value;
         }

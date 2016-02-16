@@ -51,33 +51,33 @@ namespace ConsoleCalculator
                         break;
                     }
                 }
+                
                 if (!isBreak)
                 {
+                    OperationBase choosenOperation;
+
                     switch (operation)
                     {
                         case "sum":
-                            var sum = new CalculateSum();
-                            Console.WriteLine("Result: " + sum.GetResult(splited) + "\n");
+                            choosenOperation = new SumOperation();
                             break;
                         case "sub":
-                            var sub = new CalculateSub();
-                            Console.WriteLine("Result: " + sub.GetResult(splited) + "\n");
+                            choosenOperation = new SubOperation();
                             break;
                         case "mult":
-                            var mult = new CalculateMult();
-                            Console.WriteLine("Result: " + mult.GetResult(splited) + "\n");
+                            choosenOperation = new MultOperation();
                             break;
                         case "div":
-                            var div = new CalculateDiv();
-                            Console.WriteLine("Result: " + div.GetResult(splited) + "\n");
+                            choosenOperation = new DivOperation();
                             break;
                         default:
-                            Console.WriteLine(ERROR_WRONG);
-                            break;
+                            throw new Exception ("Unknown operation");
+                            //Console.WriteLine(ERROR_WRONG);
+                            //break;
                     }
+
+                    Console.WriteLine("Result: " + choosenOperation.GetResult(splited) + "\n");
                 }
-                
-                
             }
         }
     }
