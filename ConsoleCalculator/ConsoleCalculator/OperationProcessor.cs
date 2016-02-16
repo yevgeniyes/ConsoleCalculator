@@ -41,34 +41,44 @@ namespace ConsoleCalculator
 
                 //Checking correctness of numerical data
                 double checkValue;
+                bool isBreak = false;
                 for (int i = 1; i < splited.Length; i++)
                 {
                     if (!double.TryParse(splited[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkValue))
                     {
                         Console.WriteLine(ERROR_WRONG);
-                        Run();
+                        isBreak = true;
+                        break;
                     }
                 }
-
-                switch (operation)
+                if (!isBreak)
                 {
-                    case "sum":
-                        Console.WriteLine("Result: " + Calculations.Sum(splited) + "\n");
-                        break;
-                    case "sub":
-                        Console.WriteLine("Result: " + Calculations.Subtract(splited) + "\n");
-                        break;
-                    case "mult":
-                        Console.WriteLine("Result: " + Calculations.Multiply(splited) + "\n");
-                        break;
-                    case "div":
-                        Console.WriteLine("Result: " + Calculations.Divide(splited) + "\n");
-                        break;
-                    default:
-                        Console.WriteLine(ERROR_WRONG);
-                        break;
+                    switch (operation)
+                    {
+                        case "sum":
+                            var sum = new CalculateSum();
+                            Console.WriteLine("Result: " + sum.GetResult(splited) + "\n");
+                            break;
+                        case "sub":
+                            var sub = new CalculateSub();
+                            Console.WriteLine("Result: " + sub.GetResult(splited) + "\n");
+                            break;
+                        case "mult":
+                            var mult = new CalculateMult();
+                            Console.WriteLine("Result: " + mult.GetResult(splited) + "\n");
+                            break;
+                        case "div":
+                            var div = new CalculateDiv();
+                            Console.WriteLine("Result: " + div.GetResult(splited) + "\n");
+                            break;
+                        default:
+                            Console.WriteLine(ERROR_WRONG);
+                            break;
+                    }
                 }
+                
+                
             }
-        } 
+        }
     }
 }
