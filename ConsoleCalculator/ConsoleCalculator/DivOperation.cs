@@ -5,6 +5,10 @@ namespace ConsoleCalculator
 {
     class DivOperation : OperationBase
     {
+        public DivOperation(string[] str) : base(str)
+        {
+
+        }
         public override double GetResult(string[] splitedString)
         {
             double value = double.Parse(splitedString[1], CultureInfo.InvariantCulture);

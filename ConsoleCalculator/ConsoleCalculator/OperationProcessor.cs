@@ -7,7 +7,7 @@ namespace ConsoleCalculator
     {
         private const string WELCOME_TEXT = "Console Calculator 1.215\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
         private const string ERROR_EMPTY = "Empty command. Available operations: sum, sub, mult, div\n";
-        private const string ERROR_WRONG = "Wrong command. Available operations: sum, sub, mult, div. Available variables: int, double\n";
+        public const string ERROR_WRONG = "Wrong command. Available operations: sum, sub, mult, div. Available variables: int, double\n";
         public const string ERROR_CRITICAL = "Critical error. Please restart application and try again.\n";
 
         public OperationProcessor()
@@ -39,43 +39,29 @@ namespace ConsoleCalculator
                     continue;
                 }
 
-                //Checking correctness of numerical data
-                double checkValue;
-                bool isBreak = false;
-                for (int i = 1; i < splited.Length; i++)
+                OperationBase choosenOperation = null;
+
+                switch (operation)
                 {
-                    if (!double.TryParse(splited[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkValue))
-                    {
-                        Console.WriteLine(ERROR_WRONG);
-                        isBreak = true;
+                    case "sum":
+                        choosenOperation = new SumOperation(splited);
                         break;
-                    }
+                    case "sub":
+                        choosenOperation = new SubOperation(splited);
+                        break;
+                    case "mult":
+                        choosenOperation = new MultOperation(splited);
+                        break;
+                    case "div":
+                        choosenOperation = new DivOperation(splited);
+                        break;
+                    default:
+                        Console.WriteLine(ERROR_WRONG);
+                        break;
                 }
-                
-                if (!isBreak)
+
+                if (choosenOperation != null && choosenOperation.isValid)
                 {
-                    OperationBase choosenOperation;
-
-                    switch (operation)
-                    {
-                        case "sum":
-                            choosenOperation = new SumOperation();
-                            break;
-                        case "sub":
-                            choosenOperation = new SubOperation();
-                            break;
-                        case "mult":
-                            choosenOperation = new MultOperation();
-                            break;
-                        case "div":
-                            choosenOperation = new DivOperation();
-                            break;
-                        default:
-                            throw new Exception ("Unknown operation");
-                            //Console.WriteLine(ERROR_WRONG);
-                            //break;
-                    }
-
                     Console.WriteLine("Result: " + choosenOperation.GetResult(splited) + "\n");
                 }
             }
