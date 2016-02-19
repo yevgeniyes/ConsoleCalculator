@@ -5,26 +5,26 @@ namespace ConsoleCalculator
 {
     abstract class OperationBase
     {
-        public double checkValue;
-        public bool isValid = true;
-
-        public OperationBase(string[] str)
-        {
-            CheckValues(str);
-        }
+        double checkedValue;
+        bool isValid = true;
 
         //Checking correctness of numerical data
-        public virtual void CheckValues(string[] str)
+        public virtual bool CheckValues(string[] str)
         {
             for (int i = 1; i < str.Length; i++)
             {
-                if (!double.TryParse(str[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkValue))
+                if (!double.TryParse(str[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkedValue))
                 {
                     Console.WriteLine(OperationProcessor.ERROR_WRONG);
                     isValid = false;
                     break;
                 }
             }
+
+            if (!isValid)
+                return false;
+            else
+                return true;
         }
         public abstract double GetResult(string[] splitedString);
     }

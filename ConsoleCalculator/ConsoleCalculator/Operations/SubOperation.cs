@@ -5,10 +5,6 @@ namespace ConsoleCalculator
 {
     class SubOperation : OperationBase
     {
-        public SubOperation(string[] str) : base(str)
-        {
-
-        }
         public override double GetResult(string[] splitedString)
         {
             double value = double.Parse(splitedString[1], CultureInfo.InvariantCulture);

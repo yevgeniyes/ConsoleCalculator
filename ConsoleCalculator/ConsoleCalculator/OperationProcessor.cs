@@ -5,7 +5,7 @@ namespace ConsoleCalculator
 {
     class OperationProcessor
     {
-        private const string WELCOME_TEXT = "Console Calculator 1.215\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
+        private const string WELCOME_TEXT = "Console Calculator 1.219\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
         private const string ERROR_EMPTY = "Empty command. Available operations: sum, sub, mult, div\n";
         public const string ERROR_WRONG = "Wrong command. Available operations: sum, sub, mult, div. Available variables: int, double\n";
         public const string ERROR_CRITICAL = "Critical error. Please restart application and try again.\n";
@@ -44,23 +44,23 @@ namespace ConsoleCalculator
                 switch (operation)
                 {
                     case "sum":
-                        choosenOperation = new SumOperation(splited);
+                        choosenOperation = new SumOperation();
                         break;
                     case "sub":
-                        choosenOperation = new SubOperation(splited);
+                        choosenOperation = new SubOperation();
                         break;
                     case "mult":
-                        choosenOperation = new MultOperation(splited);
+                        choosenOperation = new MultOperation();
                         break;
                     case "div":
-                        choosenOperation = new DivOperation(splited);
+                        choosenOperation = new DivOperation();
                         break;
                     default:
                         Console.WriteLine(ERROR_WRONG);
                         break;
                 }
 
-                if (choosenOperation != null && choosenOperation.isValid)
+                if (choosenOperation != null && choosenOperation.CheckValues(splited))
                 {
                     Console.WriteLine("Result: " + choosenOperation.GetResult(splited) + "\n");
                 }
