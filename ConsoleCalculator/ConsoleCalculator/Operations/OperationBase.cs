@@ -5,7 +5,7 @@ namespace ConsoleCalculator
 {
     abstract class OperationBase
     {
-        public void CompleateOperation(string[] splited)
+        public void CompleteOperation(string[] splited)
         {
             if (CheckValues(splited))
                 Console.WriteLine("Result: " + GetResult(splited) + "\n");

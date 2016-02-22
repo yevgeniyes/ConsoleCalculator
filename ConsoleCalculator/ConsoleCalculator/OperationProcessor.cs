@@ -62,7 +62,7 @@ namespace ConsoleCalculator
 
                 if (choosenOperation != null)
                 {
-                    choosenOperation.CompleateOperation(splited);
+                    choosenOperation.CompleteOperation(splited);
                 }
             }
         }
