@@ -5,14 +5,20 @@ namespace ConsoleCalculator
 {
     abstract class OperationBase
     {
+        public void CompleateOperation(string[] splited)
+        {
+            if (CheckValues(splited))
+                Console.WriteLine("Result: " + GetResult(splited) + "\n");
+        }
+
         //Checking correctness of numerical data
-        public virtual bool CheckValues(string[] str)
+        public virtual bool CheckValues(string[] splited)
         {
             double checkedValue;
 
-            for (int i = 1; i < str.Length; i++)
+            for (int i = 1; i < splited.Length; i++)
             {
-                if (!double.TryParse(str[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkedValue))
+                if (!double.TryParse(splited[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkedValue))
                 {
                     Console.WriteLine(OperationProcessor.ERROR_WRONG);
                     return false;
@@ -20,6 +26,7 @@ namespace ConsoleCalculator
             }
                 return true;
         }
-        public abstract double GetResult(string[] splitedString);
+
+        public abstract double GetResult(string[] splited);
     }
 }

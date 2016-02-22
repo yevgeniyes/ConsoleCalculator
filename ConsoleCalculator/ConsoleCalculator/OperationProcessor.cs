@@ -5,7 +5,7 @@ namespace ConsoleCalculator
 {
     class OperationProcessor
     {
-        private const string WELCOME_TEXT = "Console Calculator 1.219\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
+        private const string WELCOME_TEXT = "Console Calculator 1.222\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
         private const string ERROR_EMPTY = "Empty command. Available operations: sum, sub, mult, div\n";
         public const string ERROR_WRONG = "Wrong command. Available operations: sum, sub, mult, div. Available variables: int, double\n";
         public const string ERROR_CRITICAL = "Critical error. Please restart application and try again.\n";
@@ -60,9 +60,9 @@ namespace ConsoleCalculator
                         break;
                 }
 
-                if (choosenOperation != null && choosenOperation.CheckValues(splited))
+                if (choosenOperation != null)
                 {
-                    Console.WriteLine("Result: " + choosenOperation.GetResult(splited) + "\n");
+                    choosenOperation.CompleateOperation(splited);
                 }
             }
         }
