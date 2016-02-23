@@ -5,7 +5,7 @@ namespace ConsoleCalculator
 {
     class OperationProcessor
     {
-        private const string WELCOME_TEXT = "Console Calculator 1.222\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
+        private const string WELCOME_TEXT = "Console Calculator 1.223\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
         private const string ERROR_EMPTY = "Empty command. Available operations: sum, sub, mult, div\n";
         public const string ERROR_WRONG = "Wrong command. Available operations: sum, sub, mult, div. Available variables: int, double\n";
         public const string ERROR_CRITICAL = "Critical error. Please restart application and try again.\n";
@@ -29,40 +29,21 @@ namespace ConsoleCalculator
                     continue;
                 }
 
-                string[] splited = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                string operation = splited[0];
+                string[] splitedInput = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string operation = splitedInput[0];
 
                 //Checking number of elements in the array
-                if (splited.Length < 2)
+                if (splitedInput.Length < 2)
                 {
                     Console.WriteLine(ERROR_WRONG);
                     continue;
                 }
 
-                OperationBase choosenOperation = null;
+                var selectedOperarion = OperationSelector.SelectOperation(operation);
 
-                switch (operation)
+                if (selectedOperarion != null)
                 {
-                    case "sum":
-                        choosenOperation = new SumOperation();
-                        break;
-                    case "sub":
-                        choosenOperation = new SubOperation();
-                        break;
-                    case "mult":
-                        choosenOperation = new MultOperation();
-                        break;
-                    case "div":
-                        choosenOperation = new DivOperation();
-                        break;
-                    default:
-                        Console.WriteLine(ERROR_WRONG);
-                        break;
-                }
-
-                if (choosenOperation != null)
-                {
-                    choosenOperation.CompleteOperation(splited);
+                    selectedOperarion.CompleteOperation(splitedInput);
                 }
             }
         }

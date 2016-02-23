@@ -5,13 +5,13 @@ namespace ConsoleCalculator
 {
     class SubOperation : OperationBase
     {
-        public override double GetResult(string[] splited)
+        public override double GetResult(string[] splitedInput)
         {
-            double value = double.Parse(splited[1], CultureInfo.InvariantCulture);
+            double value = double.Parse(splitedInput[1], CultureInfo.InvariantCulture);
 
-            for (int i = 1; i < splited.Length - 1; i++)
+            for (int i = 1; i < splitedInput.Length - 1; i++)
             {
-                value = value - double.Parse(splited[i + 1], CultureInfo.InvariantCulture);
+                value = value - double.Parse(splitedInput[i + 1], CultureInfo.InvariantCulture);
             }
             return value;
         }
