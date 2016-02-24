@@ -3,9 +3,10 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
-    class OperationSelector
+    class OperationFabric
     {
-        public static OperationBase SelectOperation(string operation)
+        //Method of selecting the operation based on the input 
+        public OperationBase SelectOperation(string operation)
         {
             OperationBase choosenOperation = null;
 

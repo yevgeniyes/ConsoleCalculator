@@ -5,6 +5,7 @@ namespace ConsoleCalculator
 {
     class MultOperation : OperationBase
     {
+        //Perform multiply operation
         public override double GetResult(string[] splitedInput)
         {
             double value = double.Parse(splitedInput[1], CultureInfo.InvariantCulture);

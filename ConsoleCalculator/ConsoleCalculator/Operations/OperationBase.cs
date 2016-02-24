@@ -5,13 +5,17 @@ namespace ConsoleCalculator
 {
     abstract class OperationBase
     {
+        //Template of operation completion: check input, get result, print result
         public void CompleteOperation(string[] splitedInput)
         {
             if (CheckValues(splitedInput))
-                Console.WriteLine("Result: " + GetResult(splitedInput) + "\n");
+            {
+                double result = GetResult(splitedInput);
+                PrintResult(result);
+            }
         }
 
-        //Checking correctness of numerical data
+        //Checking input correctness
         public virtual bool CheckValues(string[] splitedInput)
         {
             double checkedValue;
@@ -24,9 +28,16 @@ namespace ConsoleCalculator
                     return false;
                 }
             }
-                return true;
+            return true;
         }
 
+        //Perform math operation: overriden for each Operations class
         public abstract double GetResult(string[] splitedInput);
+
+        //Print result
+        public virtual void PrintResult(double result)
+        {
+            Console.WriteLine("Result: " + result + "\n");
+        }
     }
 }

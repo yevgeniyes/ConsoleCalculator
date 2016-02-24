@@ -9,13 +9,13 @@ namespace ConsoleCalculator
         {
             try
             {
-            var processor = new OperationProcessor();
-            processor.Run();
+                var processor = new OperationProcessor();
+                processor.Run();
             }
             catch
             {
-            Console.WriteLine(OperationProcessor.ERROR_CRITICAL);
-            Console.ReadKey();
+                Console.WriteLine(OperationProcessor.ERROR_CRITICAL);
+                Console.ReadKey();
             }
         }
     }

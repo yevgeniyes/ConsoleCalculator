@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OperationSelector.cs" />
+    <Compile Include="InputValidation.cs" />
+    <Compile Include="OperationFabric.cs" />
     <Compile Include="Operations\OperationBase.cs" />
     <Compile Include="Operations\DivOperation.cs" />
     <Compile Include="Operations\MultOperation.cs" />
