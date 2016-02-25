@@ -5,9 +5,11 @@ namespace ConsoleCalculator
 {
     class OperationProcessor
     {
-        public const string WELCOME_TEXT = "Console Calculator 1.224\nAvailable operations: sum, sub, mult, div\nAvailable variables: int, double\nExample command: sum 3 2.54 18\n";
+        public const string WELCOME_TEXT = "Console Calculator 1.225\n\nAvailable operations for calculator: sum, sub, mult, div. Available variables: int, double\nExample command: sum 3 2.54 18\n\nAvailable operations for files: create, delete, copy, move\nExample command: create C:\\New\\SomeFile.txt\n";
         public const string ERROR_EMPTY = "Empty command. Available operations: sum, sub, mult, div\n";
-        public const string ERROR_WRONG = "Wrong command. Available operations: sum, sub, mult, div. Available variables: int, double\n";
+        public const string ERROR_CALC_WRONG = "Wrong command. Available operations: sum, sub, mult, div.\nAvailable variables: int, double\n";
+        public const string ERROR_FILE_WRONG = "Wrong command. Available operations: create, delete, copy, move.\nPath example: C:\\New_folder\\SomeFile.txt\n";
+        public const string ERROR_WRONG_OPERATION = "Wrong operation. Available operations for calculator: sum, sub, mult, div\nAvailable operations for files: create, delete, copy, move\n";
         public const string ERROR_CRITICAL = "Critical error. Please restart application and try again.\n";
 
         public OperationProcessor()

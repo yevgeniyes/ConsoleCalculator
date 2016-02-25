@@ -10,7 +10,7 @@ namespace ConsoleCalculator
         {
             if (CheckValues(splitedInput))
             {
-                double result = GetResult(splitedInput);
+                var result = GetResult(splitedInput);
                 PrintResult(result);
             }
         }
@@ -24,18 +24,18 @@ namespace ConsoleCalculator
             {
                 if (!double.TryParse(splitedInput[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkedValue))
                 {
-                    Console.WriteLine(OperationProcessor.ERROR_WRONG);
+                    Console.WriteLine(OperationProcessor.ERROR_CALC_WRONG);
                     return false;
                 }
             }
             return true;
         }
 
-        //Perform math operation: overriden for each Operations class
-        public abstract double GetResult(string[] splitedInput);
+        //Perform operation: overriden for each Operations class
+        public abstract string GetResult(string[] splitedInput);
 
         //Print result
-        public virtual void PrintResult(double result)
+        public virtual void PrintResult(string result)
         {
             Console.WriteLine("Result: " + result + "\n");
         }

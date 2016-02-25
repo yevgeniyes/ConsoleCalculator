@@ -24,8 +24,20 @@ namespace ConsoleCalculator
                 case "div":
                     choosenOperation = new DivOperation();
                     break;
+                case "create":
+                    choosenOperation = new CreateOperation();
+                    break;
+                case "delete":
+                    choosenOperation = new DeleteOperation();
+                    break;
+                case "copy":
+                    choosenOperation = new CopyOperation();
+                    break;
+                case "move":
+                    choosenOperation = new MoveOperation();
+                    break;
                 default:
-                    Console.WriteLine(OperationProcessor.ERROR_WRONG);
+                    Console.WriteLine(OperationProcessor.ERROR_WRONG_OPERATION);
                     break;
             }
 

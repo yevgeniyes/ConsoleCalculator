@@ -21,7 +21,7 @@ namespace ConsoleCalculator
         {
             if (splitedInput.Length < 2)
             {
-                Console.WriteLine(OperationProcessor.ERROR_WRONG);
+                Console.WriteLine(OperationProcessor.ERROR_WRONG_OPERATION);
                 return false;
             }
             else return true;
