@@ -24,7 +24,7 @@ namespace ConsoleCalculator
             {
                 if (!double.TryParse(splitedInput[i], NumberStyles.Number, CultureInfo.InvariantCulture, out checkedValue))
                 {
-                    Console.WriteLine(OperationProcessor.ERROR_CALC_WRONG);
+                    Console.WriteLine(Messages.ERROR_CALC_INVALID);
                     return false;
                 }
             }

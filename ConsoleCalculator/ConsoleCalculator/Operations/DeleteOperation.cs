@@ -13,7 +13,7 @@ namespace ConsoleCalculator
             if (splitedInput.Length == 2 && splitedInput[1].Contains(@":\")) return true;
             else
             {
-                Console.WriteLine(OperationProcessor.ERROR_FILE_WRONG);
+                Console.WriteLine(Messages.ERROR_FILE_INVALID);
                 return false;
             }
         }
@@ -21,20 +21,20 @@ namespace ConsoleCalculator
         //Perform delete operation
         public override string GetResult(string[] splitedInput)
         {
-            string path = splitedInput[1];
+            string file = splitedInput[1];
             fileIsDeleted = false;
 
             try
             {
-                File.Delete(path);
+                File.Delete(file);
                 fileIsDeleted = true;
             }
             catch
             {
-                Console.WriteLine("Directory not found or file does not exist. Check path and try again\n");
+                Console.WriteLine(Messages.ERROR_FILE_DEL_FAIL);
             }
 
-            return path;
+            return file;
         }
 
         //Print result

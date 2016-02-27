@@ -14,7 +14,7 @@ namespace ConsoleCalculator
                 return true;
             else
             {
-                Console.WriteLine(OperationProcessor.ERROR_FILE_WRONG);
+                Console.WriteLine(Messages.ERROR_FILE_INVALID);
                 return false;
             }
         }
@@ -22,21 +22,21 @@ namespace ConsoleCalculator
         //Perform move operation
         public override string GetResult(string[] splitedInput)
         {
-            string sourcePath = splitedInput[1];
-            string destPath = splitedInput[2];
+            string file = splitedInput[1];
+            string movedFile = splitedInput[2];
             fileIsMoved = false;
 
             try
             {
-                File.Move(sourcePath, destPath);
+                File.Move(file, movedFile);
                 fileIsMoved = true;
             }
             catch
             {
-                Console.WriteLine("Directory not found or file already exist. Check path and try again\n");
+                Console.WriteLine(Messages.ERROR_FILE_CREATE_FAIL);
             }
 
-            return sourcePath;
+            return file;
         }
 
         //Print result

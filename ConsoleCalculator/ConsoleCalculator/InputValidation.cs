@@ -10,7 +10,7 @@ namespace ConsoleCalculator
         {
             if (string.IsNullOrWhiteSpace(input))
             {
-                Console.WriteLine(OperationProcessor.ERROR_EMPTY);
+                Console.WriteLine(Messages.ERROR_EMPTY_COMMAND);
                 return false;
             }
             else return true;
@@ -21,7 +21,7 @@ namespace ConsoleCalculator
         {
             if (splitedInput.Length < 2)
             {
-                Console.WriteLine(OperationProcessor.ERROR_WRONG_OPERATION);
+                Console.WriteLine(Messages.ERROR_INVALID_COMMAND);
                 return false;
             }
             else return true;

@@ -37,7 +37,7 @@ namespace ConsoleCalculator
                     choosenOperation = new MoveOperation();
                     break;
                 default:
-                    Console.WriteLine(OperationProcessor.ERROR_WRONG_OPERATION);
+                    Console.WriteLine(Messages.ERROR_INVALID_COMMAND);
                     break;
             }
 
