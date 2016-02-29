@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
-    class MultOperation : OperationBase
+    internal class MultOperation : OperationBase
     {
         //Perform multiply operation
         public override string GetResult(string[] splitedInput)

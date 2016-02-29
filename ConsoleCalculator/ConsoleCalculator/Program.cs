@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {

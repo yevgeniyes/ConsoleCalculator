@@ -3,21 +3,9 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    class MoveOperation : OperationBase
+    internal class MoveOperation : OperationBase
     {
         private bool fileIsMoved;
-
-        //Checking input correctness
-        public override bool CheckValues(string[] splitedInput)
-        {
-            if (splitedInput.Length == 3 && splitedInput[1].Contains(@":\") && splitedInput[2].Contains(@":\"))
-                return true;
-            else
-            {
-                Console.WriteLine(Messages.ERROR_FILE_INVALID);
-                return false;
-            }
-        }
 
         //Perform move operation
         public override string GetResult(string[] splitedInput)

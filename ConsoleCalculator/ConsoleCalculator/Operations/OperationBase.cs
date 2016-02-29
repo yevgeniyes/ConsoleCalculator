@@ -3,16 +3,30 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
-    abstract class OperationBase
+    internal abstract class OperationBase
     {
-        //Template of operation completion: check input, get result, print result
-        public void CompleteOperation(string[] splitedInput)
+        //Template of math operation completion: check input, get result, print result
+        public void CompleteOperation(string[] splitedInput, string operationTag)
         {
-            if (CheckValues(splitedInput))
+            switch (operationTag)
             {
-                var result = GetResult(splitedInput);
-                PrintResult(result);
+                case "math":
+                    if (CheckValues(splitedInput))
+                    {
+                        var result = GetResult(splitedInput);
+                        PrintResult(result);
+                    }
+                    break;
+
+                case "file":
+                    if (CheckStrings(splitedInput))
+                    {
+                        var result = GetResult(splitedInput);
+                        PrintResult(result);
+                    }
+                    break;
             }
+
         }
 
         //Checking input correctness
@@ -29,6 +43,17 @@ namespace ConsoleCalculator
                 }
             }
             return true;
+        }
+
+        public virtual bool CheckStrings(string[] splitedInput)
+        {
+            if (splitedInput.Length == 3 && splitedInput[1].Contains(@":\") && splitedInput[2].Contains(@":\"))
+                return true;
+            else
+            {
+                Console.WriteLine(Messages.ERROR_FILE_INVALID);
+                return false;
+            }
         }
 
         //Perform operation: overriden for each Operations class

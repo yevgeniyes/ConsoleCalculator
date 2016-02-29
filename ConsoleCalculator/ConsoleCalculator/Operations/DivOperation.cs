@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
-    class DivOperation : OperationBase
+    internal class DivOperation : OperationBase
     {
         //Perform division operation
         public override string GetResult(string[] splitedInput)

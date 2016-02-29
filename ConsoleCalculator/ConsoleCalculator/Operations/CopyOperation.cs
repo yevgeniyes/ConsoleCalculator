@@ -3,21 +3,9 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    class CopyOperation : OperationBase
+    internal class CopyOperation : OperationBase
     {
         private bool fileIsCopied;
-
-        //Checking input correctness
-        public override bool CheckValues(string[] splitedInput)
-        {
-            if (splitedInput.Length == 3 && splitedInput[1].Contains(@":\") && splitedInput[2].Contains(@":\"))
-                return true;
-            else
-            {
-                Console.WriteLine(Messages.ERROR_FILE_INVALID);
-                return false;
-            }
-        }
 
         //Perform copy operation
         public override string GetResult(string[] splitedInput)

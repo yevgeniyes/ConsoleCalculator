@@ -3,12 +3,12 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    class CreateOperation : OperationBase
+    internal class CreateOperation : OperationBase
     {
         private bool fileIsCreated;
 
         //Checking input correctness
-        public override bool CheckValues(string[] splitedInput)
+        public override bool CheckStrings(string[] splitedInput)
         {
             if (splitedInput.Length == 2 && splitedInput[1].Contains(@":\")) return true;
             else

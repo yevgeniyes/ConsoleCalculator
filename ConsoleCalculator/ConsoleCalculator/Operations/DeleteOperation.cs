@@ -3,12 +3,12 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    class DeleteOperation : OperationBase
+    internal class DeleteOperation : OperationBase
     {
         private bool fileIsDeleted;
 
         //Checking input correctness
-        public override bool CheckValues(string[] splitedInput)
+        public override bool CheckStrings(string[] splitedInput)
         {
             if (splitedInput.Length == 2 && splitedInput[1].Contains(@":\")) return true;
             else
