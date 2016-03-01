@@ -5,27 +5,29 @@ namespace ConsoleCalculator
 {
     internal abstract class OperationBase
     {
-        //Template of math operation completion: check input, get result, print result
+        //Template of operation completion: check input, get result, print result
         public void CompleteOperation(string[] splitedInput, string operationTag)
         {
+            string result = null;
+
             switch (operationTag)
             {
                 case "math":
                     if (CheckValues(splitedInput))
                     {
-                        var result = GetResult(splitedInput);
-                        PrintResult(result);
+                        result = GetResult(splitedInput);
                     }
                     break;
 
                 case "file":
                     if (CheckStrings(splitedInput))
                     {
-                        var result = GetResult(splitedInput);
-                        PrintResult(result);
+                        result = GetResult(splitedInput);
                     }
                     break;
             }
+
+            if(result != null) PrintResult(result);
 
         }
 
