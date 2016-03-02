@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    internal class DeleteOperation : OperationBase
+    internal class DeleteOperation : FileOperationBase
     {
         private bool fileIsDeleted;
 
@@ -19,7 +19,7 @@ namespace ConsoleCalculator
         }
 
         //Perform delete operation
-        public override string GetResult(string[] splitedInput)
+        public override string GetFileResult(string[] splitedInput)
         {
             string file = splitedInput[1];
             fileIsDeleted = false;

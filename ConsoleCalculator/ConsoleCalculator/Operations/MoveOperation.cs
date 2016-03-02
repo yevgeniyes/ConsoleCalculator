@@ -3,12 +3,12 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    internal class MoveOperation : OperationBase
+    internal class MoveOperation : FileOperationBase
     {
         private bool fileIsMoved;
 
         //Perform move operation
-        public override string GetResult(string[] splitedInput)
+        public override string GetFileResult(string[] splitedInput)
         {
             string file = splitedInput[1];
             string movedFile = splitedInput[2];

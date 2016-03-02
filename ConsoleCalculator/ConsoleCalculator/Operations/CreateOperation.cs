@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    internal class CreateOperation : OperationBase
+    internal class CreateOperation : FileOperationBase
     {
         private bool fileIsCreated;
 
@@ -19,7 +19,7 @@ namespace ConsoleCalculator
         }
 
         //Perform create operation
-        public override string GetResult(string[] splitedInput)
+        public override string GetFileResult(string[] splitedInput)
         {
             string file = splitedInput[1];
             fileIsCreated = false;

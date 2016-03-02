@@ -3,10 +3,10 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
-    internal class MultOperation : OperationBase
+    internal class MultOperation : MathOperationBase
     {
         //Perform multiply operation
-        public override string GetResult(string[] splitedInput)
+        public override string GetMathResult(string[] splitedInput)
         {
             double value = double.Parse(splitedInput[1], CultureInfo.InvariantCulture);
 

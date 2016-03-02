@@ -3,12 +3,12 @@ using System.IO;
 
 namespace ConsoleCalculator
 {
-    internal class CopyOperation : OperationBase
+    internal class CopyOperation : FileOperationBase
     {
         private bool fileIsCopied;
 
         //Perform copy operation
-        public override string GetResult(string[] splitedInput)
+        public override string GetFileResult(string[] splitedInput)
         {
             string file = splitedInput[1];
             string copiedFile = splitedInput[2];

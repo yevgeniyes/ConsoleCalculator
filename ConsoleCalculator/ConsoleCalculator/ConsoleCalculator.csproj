@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operations\FileOperationBase.cs" />
     <Compile Include="InputProcessor.cs" />
+    <Compile Include="Operations\MathOperationBase.cs" />
     <Compile Include="OperationFabric.cs" />
     <Compile Include="Operations\CopyOperation.cs" />
     <Compile Include="Operations\CreateOperation.cs" />

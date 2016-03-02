@@ -22,13 +22,12 @@ namespace ConsoleCalculator
 
                 string operation = splitedInput[0];
 
-                string operationTag;
                 var fabric = new OperationFabric();
-                var selectedOperarion = fabric.SelectOperation(operation, out operationTag);
+                var selectedOperarion = fabric.SelectOperation(operation);
 
                 if (selectedOperarion != null)
                 {
-                    selectedOperarion.CompleteOperation(splitedInput, operationTag);
+                    selectedOperarion.CompleteOperation(splitedInput);
                 }
 
             }
