@@ -5,19 +5,8 @@ namespace ConsoleCalculator
 {
     abstract class MathOperationBase : OperationBase
     {
-        //Check and perform command, print result if comleted 
-        public override void Execute(string[] splitedInput)
-        {
-            string result = null;
-
-            if (CheckValues(splitedInput))
-                result = GetMathResult(splitedInput);
-
-            if (result != null) PrintResult(result);
-        }
-
         //Checking input correctness
-        public virtual bool CheckValues(string[] splitedInput)
+        public override bool Validate(string[] splitedInput)
         {
             double checkedValue;
 
@@ -31,8 +20,5 @@ namespace ConsoleCalculator
             }
             return true;
         }
-
-        //Perform operation: overriden for each Operations class
-        public abstract string GetMathResult(string[] splitedInput);
     }
 }

@@ -5,19 +5,17 @@ namespace ConsoleCalculator
 {
     internal abstract class OperationBase
     {
-        //Template of operation completion: get result, print result
+        //Template of operation completion
         public void CompleteOperation(string[] splitedInput)
         {
-            Execute(splitedInput);
+            if(Validate(splitedInput))
+                Execute(splitedInput);
         }
 
-        //Perform operation: overriden for each Operations type
+        //Validate input
+        public abstract bool Validate(string[] splitedInput);
+
+        //Perform operation: overriden for each Operation
         public abstract void Execute(string[] splitedInput);
-
-        //Print result
-        public virtual void PrintResult(string result)
-        {
-            Console.WriteLine("Result: " + result + "\n");
-        }
     }
 }

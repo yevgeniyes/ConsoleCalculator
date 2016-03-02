@@ -8,7 +8,7 @@ namespace ConsoleCalculator
         private bool fileIsCreated;
 
         //Checking input correctness
-        public override bool CheckStrings(string[] splitedInput)
+        public override bool Validate(string[] splitedInput)
         {
             if (splitedInput.Length == 2 && splitedInput[1].Contains(@":\")) return true;
             else
@@ -19,7 +19,7 @@ namespace ConsoleCalculator
         }
 
         //Perform create operation
-        public override string GetFileResult(string[] splitedInput)
+        public override void Execute(string[] splitedInput)
         {
             string file = splitedInput[1];
             fileIsCreated = false;
@@ -34,14 +34,8 @@ namespace ConsoleCalculator
                 Console.WriteLine(Messages.ERROR_FILE_CREATE_FAIL);
             }
 
-            return file;
-        }
-
-        //Print result
-        public override void PrintResult(string result)
-        {
             if (fileIsCreated)
-                Console.WriteLine("Result: " + result + " was created\n");
+                Console.WriteLine("Result: " + file + " was created\n");
         }
     }
 }
