@@ -29,7 +29,6 @@ namespace ConsoleCalculator
                 {
                     selectedOperarion.CompleteOperation(splitedInput);
                 }
-
             }
         }
     }

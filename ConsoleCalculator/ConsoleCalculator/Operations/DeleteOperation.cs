@@ -8,7 +8,7 @@ namespace ConsoleCalculator
         private bool fileIsDeleted;
 
         //Checking input correctness
-        public override bool Validate(string[] splitedInput)
+        protected override bool Validate(string[] splitedInput)
         {
             if (splitedInput.Length == 2 && splitedInput[1].Contains(@":\")) return true;
             else
@@ -19,7 +19,7 @@ namespace ConsoleCalculator
         }
 
         //Perform delete operation
-        public override void Execute(string[] splitedInput)
+        protected override void Execute(string[] splitedInput)
         {
             string file = splitedInput[1];
             fileIsDeleted = false;

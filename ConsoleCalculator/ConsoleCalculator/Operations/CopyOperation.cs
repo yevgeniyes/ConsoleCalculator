@@ -8,7 +8,7 @@ namespace ConsoleCalculator
         private bool fileIsCopied;
 
         //Perform copy operation
-        public override void Execute(string[] splitedInput)
+        protected override void Execute(string[] splitedInput)
         {
             string file = splitedInput[1];
             string copiedFile = splitedInput[2];

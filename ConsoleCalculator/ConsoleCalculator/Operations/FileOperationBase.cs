@@ -6,7 +6,7 @@ namespace ConsoleCalculator
     abstract class FileOperationBase : OperationBase
     {
         //Checking input correctness
-        public override bool Validate(string[] splitedInput)
+        protected override bool Validate(string[] splitedInput)
         {
             if (splitedInput.Length == 3 && splitedInput[1].Contains(@":\") && splitedInput[2].Contains(@":\"))
                 return true;

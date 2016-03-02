@@ -6,7 +6,7 @@ namespace ConsoleCalculator
     internal class DivOperation : MathOperationBase
     {
         //Perform division operation
-        public override void Execute(string[] splitedInput)
+        protected override void Execute(string[] splitedInput)
         {
             double value = double.Parse(splitedInput[1], CultureInfo.InvariantCulture);
 

@@ -13,9 +13,9 @@ namespace ConsoleCalculator
         }
 
         //Validate input
-        public abstract bool Validate(string[] splitedInput);
+        protected abstract bool Validate(string[] splitedInput);
 
         //Perform operation: overriden for each Operation
-        public abstract void Execute(string[] splitedInput);
+        protected abstract void Execute(string[] splitedInput);
     }
 }

@@ -6,7 +6,7 @@ namespace ConsoleCalculator
     abstract class MathOperationBase : OperationBase
     {
         //Checking input correctness
-        public override bool Validate(string[] splitedInput)
+        protected override bool Validate(string[] splitedInput)
         {
             double checkedValue;
 
