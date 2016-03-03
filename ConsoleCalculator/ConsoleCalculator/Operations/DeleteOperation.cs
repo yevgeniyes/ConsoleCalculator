@@ -5,8 +5,6 @@ namespace ConsoleCalculator
 {
     internal class DeleteOperation : FileOperationBase
     {
-        private bool fileIsDeleted;
-
         //Checking input correctness
         protected override bool Validate(string[] splitedInput)
         {
@@ -22,20 +20,16 @@ namespace ConsoleCalculator
         protected override void Execute(string[] splitedInput)
         {
             string file = splitedInput[1];
-            fileIsDeleted = false;
 
             try
             {
                 File.Delete(file);
-                fileIsDeleted = true;
+                Console.WriteLine("Result: " + file + " was deleted\n");
             }
             catch
             {
                 Console.WriteLine(Messages.ERROR_FILE_DEL_FAIL);
-            }
-
-            if (fileIsDeleted)
-                Console.WriteLine("Result: " + file + " was deleted\n");
+            }   
         }
     }
 }

@@ -5,8 +5,6 @@ namespace ConsoleCalculator
 {
     internal class CreateOperation : FileOperationBase
     {
-        private bool fileIsCreated;
-
         //Checking input correctness
         protected override bool Validate(string[] splitedInput)
         {
@@ -22,20 +20,16 @@ namespace ConsoleCalculator
         protected override void Execute(string[] splitedInput)
         {
             string file = splitedInput[1];
-            fileIsCreated = false;
 
             try
             {
                 File.Create(file);
-                fileIsCreated = true;
+                Console.WriteLine("Result: " + file + " was created\n");
             }
             catch
             {
                 Console.WriteLine(Messages.ERROR_FILE_CREATE_FAIL);
             }
-
-            if (fileIsCreated)
-                Console.WriteLine("Result: " + file + " was created\n");
         }
     }
 }

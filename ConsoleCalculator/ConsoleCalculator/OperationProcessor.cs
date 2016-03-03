@@ -10,7 +10,10 @@ namespace ConsoleCalculator
             Console.WriteLine(Messages.INTRO_TEXT);
         }
 
-        //Main logic: read, validate and split input, select operation, complete operation based on operation tag ("math" or "file")
+        /// <summary>
+        ///Main logic: read, validate and split input, select operation, complete operation based on operation tag ("math" or "file") 
+        /// </summary>
+        
         public void Run()
         {
             while (true)

@@ -3,9 +3,15 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
+    /// <summary>
+    /// The base class for all operations
+    /// </summary>
     internal abstract class OperationBase
     {
-        //Template of operation completion
+        /// <summary>
+        /// Template of operation completion
+        /// </summary>
+        /// <param name="splitedInput"></param>
         public void CompleteOperation(string[] splitedInput)
         {
             if(Validate(splitedInput))

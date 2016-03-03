@@ -5,7 +5,12 @@ namespace ConsoleCalculator
 {
     internal class OperationFabric
     {
-        //Method of selecting the operation
+        /// <summary>
+        /// Method of selecting the operation
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <returns>Instance of the selected operation class</returns>
+
         public OperationBase SelectOperation(string operation)
         {
             OperationBase choosenOperation = null;

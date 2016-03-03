@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace ConsoleCalculator
 {
+    /// <summary>
+    /// The base class for math operations. Inherited from OperationBase
+    /// </summary>
     abstract class MathOperationBase : OperationBase
     {
         //Checking input correctness

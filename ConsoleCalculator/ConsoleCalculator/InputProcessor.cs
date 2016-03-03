@@ -5,7 +5,10 @@ namespace ConsoleCalculator
 {
     internal class InputProcessor
     {
-        //Read input, validate and split, return splited input
+        /// <summary>
+        /// Read input, validate and split, return splited input
+        /// </summary>
+        /// <returns>Array of splited strings</returns>
         public string[] ReadAndSplit()
         {
             Console.WriteLine("Enter the command:");
