@@ -17,7 +17,7 @@ namespace ConsoleCalculator
 
             var client = new FacebookClient(accessToken);
 
-            switch (splitedInput[1])
+            switch (command)
             {
                 case "list":
                     List(client, appId);
@@ -56,14 +56,21 @@ namespace ConsoleCalculator
 
         private void CreateUser(FacebookClient client, string appId, string command)
         {
-            dynamic testUsers = client.Post(appId + "/accounts/test-users", new
+            try
             {
-                installed = true,
-                name = command,
-                permissions = "read_stream"
-            });
-            var testuserId = testUsers.id;
-            Console.WriteLine("User was created: id: " + testuserId + "\n");
+                dynamic testUsers = client.Post(appId + "/accounts/test-users", new
+                {
+                    installed = true,
+                    name = command,
+                    permissions = "read_stream"
+                });
+                var testuserId = testUsers.id;
+                Console.WriteLine("User was created: id: " + testuserId + "\n");
+            }
+            catch
+            {
+                Console.WriteLine("Invalid user name. Try another name\n");
+            }
         }
     }
 }
