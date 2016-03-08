@@ -41,6 +41,9 @@ namespace ConsoleCalculator
                 case "move":
                     choosenOperation = new MoveOperation();
                     break;
+                case "fb":
+                    choosenOperation = new FBOperation();
+                    break;
                 default:
                     Console.WriteLine(Messages.ERROR_INVALID_COMMAND);
                     break;

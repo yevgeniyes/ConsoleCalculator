@@ -7,16 +7,16 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
-            try
-            {
+            //try
+            //{
                 var processor = new OperationProcessor();
                 processor.Run();
-            }
-            catch
-            {
-                Console.WriteLine(Messages.ERROR_CRITICAL);
-                Console.ReadKey();
-            }
+            //}
+            //catch
+            //{
+            //    Console.WriteLine(Messages.ERROR_CRITICAL);
+            //    Console.ReadKey();
+            //}
         }
     }
 }
