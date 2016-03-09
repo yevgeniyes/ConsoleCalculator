@@ -13,7 +13,7 @@ namespace ConsoleCalculator
 
             string accessToken = GetAccessToken(appId, appSecret);
 
-            Console.WriteLine("Access token: " + accessToken + "\n");
+            Console.WriteLine("Access token received\n");
 
             var client = new FacebookClient(accessToken);
 
@@ -46,11 +46,11 @@ namespace ConsoleCalculator
         {
             dynamic testUsersList = client.Get(appId + "/accounts/test-users");
             string srt_testUsersList = testUsersList.ToString();
-            string[] arr = srt_testUsersList.Split('{', ',');
+            string[] arr = srt_testUsersList.Split('{', ',', ':');
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i].Contains("id"))
-                    Console.WriteLine(arr[i] + "\n");
+                    Console.WriteLine("id: " + arr[i + 1].Substring(1, arr[i + 1].Length - 2) + "\n");
             }
         }
 
